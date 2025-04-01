@@ -18,7 +18,7 @@ spec:
         run: rabbitmq-producer
     spec:
       containers:
-        - name: techtalksproducer
+        - name: web
           image: ngacrregistry.azurecr.io/nileshgule/techtalksproducer:rabbitmq-keda-5.0
           # image: nileshgule/techtalksproducer:rabbitmq-keda-5.0
           env:
@@ -38,6 +38,7 @@ spec:
             requests:
               cpu: "10m" #1% of a core
               memory: "200Mi"
+              ephemeral-storage: "2Gi"
             limits:
               cpu: "50m" #5% of a core
               memory: "500Mi"
